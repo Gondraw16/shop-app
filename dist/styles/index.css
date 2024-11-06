@@ -9,6 +9,10 @@
     font-style: normal;
 }
 
+button, input {
+    outline: 0;
+}
+
 .container {
     width: 100%;
     min-height: 100vh;
@@ -47,3 +51,47 @@ main {
     padding: 90px 30px 0px 300px;
 }
 
+.search-form {
+    width: 100%;
+    max-width: 350px;
+    display: flex;
+    align-items: center;
+}
+
+#search-input {
+    width: 100%;
+    height: 32px;
+    font-size: 14px;
+    padding: 0 15px;
+    border: 0;
+    background-color: #ececec;
+}
+
+.search-button {
+    height: 32px;
+    width: 35px;
+    border: 0;
+    font-size: 15px;
+    color: #5f5f5f;
+    background-color: #ececec;
+    cursor: pointer;
+}
+
+.rounded-button {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 0;
+    color: #5f5f5f;
+    cursor: pointer;
+    background-color: transparent;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .3s ease all;
+}
+
+.rounded-button:hover, .search-button:hover {
+    background-color: rgba(0,0,0,0.1);
+}
