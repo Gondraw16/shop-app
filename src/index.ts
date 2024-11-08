@@ -1,5 +1,7 @@
 import { toggleMenuBtn } from "./funcs/menu.js";
+import { renderProducts } from "./funcs/render-products.js";
 import { toggleShoppingCart, cartIsOpen } from "./funcs/shopping-cart.js";
+import { getProduct } from "./helpers/getProducts.js";
 
 
 // Selectors
@@ -11,6 +13,11 @@ const cart:HTMLDivElement|null = document.querySelector('.shopping-cart-containe
 
 document.addEventListener('DOMContentLoaded', () => {
     addEventListeners();
+
+     getProduct(main)
+        .then(products => renderProducts(main, products))
+        .catch(error => console.log(error))
+
 })
 
 function addEventListeners() {
