@@ -1,0 +1,47 @@
+export const renderProducts = (container, products) => {
+    products.forEach((product) => {
+        const { id, title: ProductTitle, description, category, image, price: ProductPrice, rating: { count, rate } } = product;
+        let shorcutTitle = ProductTitle.length > 38 ? `${ProductTitle.substring(0, 38)}...` : ProductTitle;
+        const card = document.createElement('DIV');
+        card.classList.add('product-card');
+        const contentImg = document.createElement('DIV');
+        contentImg.classList.add('content-img');
+        const img = document.createElement('img');
+        img.src = `${image}`;
+        img.alt = `${ProductTitle}`;
+        const info = document.createElement('DIV');
+        info.classList.add('content-info');
+        const title = document.createElement('a');
+        title.textContent = shorcutTitle;
+        title.href = `product?id=${id}`;
+        title.classList.add('product-title');
+        const price = document.createElement('P');
+        price.textContent = `$${ProductPrice}`;
+        price.classList.add('product-price');
+        const contentBtn = document.createElement('DIV');
+        contentBtn.classList.add('content-btn');
+        const likeBtn = document.createElement('button');
+        likeBtn.type = 'button';
+        likeBtn.classList.add('rounded-button', 'like-btn');
+        likeBtn.innerHTML = `<i class="fa-solid fa-thumbs-up"></i>`;
+        const addCartBtn = document.createElement('button');
+        addCartBtn.type = 'button';
+        addCartBtn.classList.add('rounded-button', 'add-cart-btn');
+        addCartBtn.innerHTML = `<i class="fa-solid fa-cart-shopping"></i>`;
+        const viewDetaillsBtn = document.createElement('button');
+        viewDetaillsBtn.type = 'button';
+        viewDetaillsBtn.classList.add('rounded-button', 'add-cart-btn');
+        viewDetaillsBtn.innerHTML = `<i class="fa-solid fa-eye"></i>`;
+        contentImg.appendChild(img);
+        contentBtn.appendChild(likeBtn);
+        contentBtn.appendChild(addCartBtn);
+        contentBtn.appendChild(viewDetaillsBtn);
+        info.appendChild(title);
+        info.appendChild(price);
+        info.appendChild(contentBtn);
+        card.appendChild(contentImg);
+        card.appendChild(info);
+        container === null || container === void 0 ? void 0 : container.appendChild(card);
+    });
+};
+//# sourceMappingURL=render-products.js.map
